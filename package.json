@@ -1,0 +1,50 @@
+{
+  "name": "my-blog",
+  "description": "My new blog built with vending-mocha",
+  "version": "0.0.0",
+  "license": "Apache-2.0",
+  "type": "module",
+  "scripts": {
+    "dev": "npm run build:all && vite",
+    "build:client": "tsc -b && vite build --outDir docs",
+    "build:server": "tsc -b && vite build --ssr src/entry-server.tsx --outDir dist/server",
+    "prebuild": "node scripts/generate-posts-data.js && node scripts/generate-projects-data.js",
+    "build": "npm run prebuild && npm run build:client && npm run build:server && node prerender.js && node scripts/generate-rss.js",
+    "build:all": "npm run build && for d in projects/*; do if [ -d \"$d\" ]; then (cd \"$d\" && npm run build); fi; done",
+    "preview": "npm run build:all && vite preview --outDir docs"
+  },
+  "dependencies": {
+    "@types/react-syntax-highlighter": "15.5.13",
+    "date-fns": "^4.1.0",
+    "gray-matter": "^4.0.3",
+    "lucide-react": "^0.564.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-helmet-async": "^2.0.5",
+    "react-markdown": "^10.1.0",
+    "react-router-dom": "^7.13.0",
+    "react-syntax-highlighter": "16.1.0",
+    "remark-breaks": "^4.0.0",
+    "remark-gfm": "^4.0.1"
+  },
+  "overrides": {
+    "react-helmet-async": {
+      "react": "$react"
+    }
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@types/node": "^24.10.1",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.1",
+    "eslint": "^9.39.1",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.4.24",
+    "globals": "^16.5.0",
+    "prettier": "^3.8.1",
+    "typescript": "~5.9.3",
+    "typescript-eslint": "^8.48.0",
+    "vite": "^7.3.1"
+  }
+}

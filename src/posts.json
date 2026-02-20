@@ -1,0 +1,9 @@
+[
+  {
+    "slug": "hello-world",
+    "title": "Hello World!",
+    "date": "2026-02-19",
+    "summary": "Welcome to my blog! I look forward to sharing my learnings in AI, software engineering, and my journey as a developer.",
+    "weight": 0
+  }
+]

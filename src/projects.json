@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Vending Mocha",
+    "description": "A lightweight, blazing fast, personal blogging framework built with React.",
+    "link": "https://github.com/kcthota/vending-mocha",
+    "status": "active",
+    "weight": 100
+  },
+  {
+    "name": "cptn.io",
+    "description": "Develop and deploy integration and data processing pipelines quickly and easily.",
+    "link": "https://cptn.io",
+    "status": "inactive",
+    "weight": 50
+  },
+  {
+    "name": "DevRaven",
+    "description": "A monitoring startup I founded in 2022. No longer active",
+    "link": "https://devraven.com",
+    "status": "dead",
+    "weight": 1
+  }
+]
