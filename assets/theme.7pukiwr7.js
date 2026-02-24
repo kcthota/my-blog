@@ -1,6 +1,6 @@
 
 (function() {
-    const themeConfig = {"light":{"primary":"#222","secondary":"#666","background":"#ffffff","text":"#213547","border":"#eee","cardBackground":"#eee","linkHover":"#000","linkColor":"#222"},"dark":{"primary":"#fff","secondary":"#aaa","background":"#121212","text":"#e0e0e0","border":"#333","cardBackground":"#373636ff","linkHover":"#fff","linkColor":"#ccc"},"fontFamily":"Avenir, Open Sans, sans-serif"};
+    const themeConfig = {"light":{"primary":"#222","secondary":"#666","background":"#ffffff","text":"#213547","border":"#eee","cardBackground":"#eee","linkHover":"#000","linkColor":"#222","lifeWeek":"#ddd"},"dark":{"primary":"#fff","secondary":"#aaa","background":"#121212","text":"#e0e0e0","border":"#333","cardBackground":"#373636ff","linkHover":"#fff","linkColor":"#ccc","lifeWeek":"#bbb"},"fontFamily":"Avenir, Open Sans, sans-serif"};
     const STORAGE_KEY = 'theme';
     const PREFERS_DARK = window.matchMedia('(prefers-color-scheme: dark)');
 
