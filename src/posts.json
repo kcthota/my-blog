@@ -1,9 +1,30 @@
 [
   {
+    "slug": "life-in-weeks-feature",
+    "title": "Introducing the Life in Weeks Feature ⏳",
+    "date": "2026-02-22",
+    "summary": "A new feature to visualize your life in weeks",
+    "weight": 0
+  },
+  {
     "slug": "hello-world",
-    "title": "Hello World!",
-    "date": "2026-02-19",
-    "summary": "Welcome to my blog! I look forward to sharing my learnings in AI, software engineering, and my journey as a developer.",
+    "title": "Welcome to Vending Mocha ☕",
+    "date": "2026-02-17 04:00:00",
+    "summary": "Welcome to your new blogging framework! This is a sample post to get you started.",
+    "weight": 0
+  },
+  {
+    "slug": "markdown-features",
+    "title": "Markdown Features Demo 📝",
+    "date": "2026-02-17 02:00:00",
+    "summary": "A demonstration of the Markdown features supported by Vending Mocha, including code blocks, lists, and formatting.",
+    "weight": 0
+  },
+  {
+    "slug": "deploy-to-github-pages",
+    "title": "Deploying to GitHub Pages 🚀",
+    "date": "2026-02-17 01:00:00",
+    "summary": "A step-by-step guide to deploying your Vending Mocha blog to GitHub Pages using GitHub Actions.",
     "weight": 0
   }
 ]

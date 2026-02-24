@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Home, FolderGit2, Sun, Moon, Menu, X } from 'lucide-react';
+import { Home, FolderGit2, Sun, Moon, Menu, X, Activity } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import { siteConfig } from '../site.config';
 import projects from '../projects.json';
+import lifeData from '../life.json';
 
 export default function SiteHeader({ showTitle = true }: { showTitle?: boolean }) {
     const { theme, toggleTheme } = useTheme();
@@ -25,6 +26,12 @@ export default function SiteHeader({ showTitle = true }: { showTitle?: boolean }
                         <Link to="/projects/" onClick={closeMenu}>
                             <FolderGit2 size={18} />
                             <span>Projects</span>
+                        </Link>
+                    )}
+                    {lifeData.length > 0 && (
+                        <Link to="/life" onClick={closeMenu}>
+                            <Activity size={18} />
+                            <span>Life</span>
                         </Link>
                     )}
                 </nav>

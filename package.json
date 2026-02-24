@@ -8,7 +8,7 @@
     "dev": "npm run build:all && vite",
     "build:client": "tsc -b && vite build --outDir docs",
     "build:server": "tsc -b && vite build --ssr src/entry-server.tsx --outDir dist/server",
-    "prebuild": "node scripts/generate-posts-data.js && node scripts/generate-projects-data.js",
+    "prebuild": "node scripts/generate-posts-data.js && node scripts/generate-projects-data.js && node scripts/generate-life-data.js",
     "build": "npm run prebuild && npm run build:client && npm run build:server && node prerender.js && node scripts/generate-rss.js",
     "build:all": "npm run build && for d in projects/*; do if [ -d \"$d\" ]; then (cd \"$d\" && npm run build); fi; done",
     "preview": "npm run build:all && vite preview --outDir docs"

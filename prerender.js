@@ -36,8 +36,16 @@ async function prerender() {
     }
     const normalizedBasePath = basePath;
 
-    // 3. Determine routes to prerender
     const routesToPrerender = ['/', '/projects/'];
+
+    // Add life page conditionally
+    const lifePath = toAbsolute('src/life.json');
+    if (fs.existsSync(lifePath)) {
+        const lifeEvents = JSON.parse(fs.readFileSync(lifePath, 'utf-8'));
+        if (lifeEvents.length > 0) {
+            routesToPrerender.push('/life/');
+        }
+    }
 
     // Add blog post routes and pagination
     const postsPath = toAbsolute('src/posts.json');

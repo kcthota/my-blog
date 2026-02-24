@@ -34,6 +34,13 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
         root.style.setProperty('--color-card-bg', themeConfig.cardBackground);
         root.style.setProperty('--color-link-hover', themeConfig.linkHover);
         root.style.setProperty('--color-link', themeConfig.linkColor);
+
+        if (themeConfig.lifeWeek) {
+            root.style.setProperty('--color-life-week', themeConfig.lifeWeek);
+        } else {
+            root.style.removeProperty('--color-life-week');
+        }
+
         root.style.setProperty('--font-family', siteConfig.theme.fontFamily);
     }, [theme]);
 

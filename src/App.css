@@ -491,3 +491,81 @@ code {
 .next-link:hover {
   text-decoration: underline;
 }
+
+/* Life in Weeks */
+.life-page {
+  text-align: center;
+}
+
+.life-visualization {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.life-grid-container {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.life-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.life-week {
+  min-width: 18px;
+  height: 24px;
+  border: 1px solid var(--color-life-week, var(--color-border));
+  background-color: transparent;
+  border-radius: 4px;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.1s, border-color 0.2s;
+}
+
+
+.life-week.past {
+  background-color: var(--color-life-week, var(--color-border));
+}
+
+.life-week.event {
+  z-index: 1;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  border-radius: 6px;
+}
+
+.event-label-text {
+  font-size: 0.75rem;
+  font-weight: 500;
+  white-space: nowrap;
+  color: #fff;
+}
+
+
+
+.empty-state {
+  margin-top: 4rem;
+  padding: 3rem;
+  background-color: var(--color-card-bg);
+  border-radius: 12px;
+  border: 1px dashed var(--color-border);
+}
+
+.life-section {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.life-section-title {
+  text-align: left;
+  font-size: 1.2rem;
+  color: var(--color-secondary);
+  margin: 0.5rem 0px;
+}

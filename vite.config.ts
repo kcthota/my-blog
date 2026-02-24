@@ -12,15 +12,20 @@ const watchMarkdownPlugin = () => ({
       // Use absolute paths or relative checks to ensure we only trigger on relevant files
       const normalizedFile = file.replace(/\\/g, '/')
       if (normalizedFile.endsWith('.md')) {
-        if (normalizedFile.includes('/src/posts/')) {
+        if (normalizedFile.includes('/posts/')) {
           console.log('Post changed, regenerating posts data...')
           exec('node scripts/generate-posts-data.js', (err) => {
             if (err) console.error('Error regenerating posts:', err)
           })
-        } else if (normalizedFile.includes('/src/projects/')) {
+        } else if (normalizedFile.includes('/projects/')) {
           console.log('Project changed, regenerating projects data...')
           exec('node scripts/generate-projects-data.js', (err) => {
             if (err) console.error('Error regenerating projects:', err)
+          })
+        } else if (normalizedFile.includes('/life/')) {
+          console.log('Life events changed, regenerating projects data...')
+          exec('node scripts/generate-life-data.js', (err) => {
+            if (err) console.error('Error regenerating life events:', err)
           })
         }
       }

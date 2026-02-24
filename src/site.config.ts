@@ -3,8 +3,8 @@
 export const siteConfig = {
     title: "Krishna Thota",
     url: "https://kcthota.com",
-    description: 'Hi there! I am **Krishna**. I am a software engineer based in SF Bay Area.\n\nI created this space to share the things I\'m most passionate about: the evolving world of AI, the precision of a perfect bowl of ramen, and traveling the globe with the people I love.',
-    image: '/images/profile.png',
+    description: "Hi there! I am **Krishna**. I am a software engineer based in SF Bay Area.\n\nI created this space to share the things I'm most passionate about: the evolving world of AI, the precision of a perfect bowl of ramen, and traveling the globe with the people I love.",
+    image: "/images/profile.png",
     contact: {
         github: "https://github.com/kcthota",
         email: "me@kcthota.com"
@@ -20,6 +20,7 @@ export const siteConfig = {
             cardBackground: "#eee",
             linkHover: "#000",
             linkColor: "#222",
+            lifeWeek: "#ddd"
         },
         dark: {
             primary: "#fff",
@@ -30,7 +31,8 @@ export const siteConfig = {
             cardBackground: "#373636ff",
             linkHover: "#fff",
             linkColor: "#ccc",
+            lifeWeek: "#bbb"
         },
-        fontFamily: "Avenir, Open Sans, sans-serif",
-    },
+        fontFamily: "Avenir, Open Sans, sans-serif"
+    }
 };

@@ -4,19 +4,19 @@
     "description": "A lightweight, blazing fast, personal blogging framework built with React.",
     "link": "https://github.com/kcthota/vending-mocha",
     "status": "active",
-    "weight": 100
+    "weight": 10
   },
   {
-    "name": "cptn.io",
-    "description": "Develop and deploy integration and data processing pipelines quickly and easily.",
-    "link": "https://cptn.io",
+    "name": "Placeholder 1",
+    "description": "A Placeholder description for the project",
+    "link": "https://example.com/",
     "status": "inactive",
-    "weight": 50
+    "weight": 5
   },
   {
-    "name": "DevRaven",
-    "description": "A monitoring startup I founded in 2022. No longer active",
-    "link": "https://devraven.com",
+    "name": "Placeholder 2",
+    "description": "A placeholder description for the project",
+    "link": "https://example.com/",
     "status": "dead",
     "weight": 1
   }
