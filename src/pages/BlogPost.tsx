@@ -58,6 +58,8 @@ export default function BlogPost() {
         <div className="blog-container">
             <SiteHeader />
             <Helmet>
+                <title>{`${postMeta.title} - ${siteConfig.title}`}</title>
+                <meta name="description" content={postMeta.summary || siteConfig.description} />
                 <script type='application/ld+json'>
                     {JSON.stringify(jsonLd)}
                 </script>

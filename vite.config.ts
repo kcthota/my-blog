@@ -62,5 +62,8 @@ export default defineConfig({
   },
   ssr: {
     noExternal: ['react-syntax-highlighter']
+  },
+  define: {
+    __BUILD_TIMESTAMP__: Date.now(),
   }
 })

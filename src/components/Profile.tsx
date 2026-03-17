@@ -5,14 +5,35 @@ import { siteConfig } from '../site.config';
 import remarkGfm from 'remark-gfm';
 import { Github, Mail, Rss } from 'lucide-react';
 
+declare const __BUILD_TIMESTAMP__: string | number | undefined;
+
 export default function Profile() {
+    const isRelativeImage = Boolean(siteConfig.image && !siteConfig.image.startsWith('http') && !siteConfig.image.startsWith('//'));
+    let finalImageUrl = siteConfig.image || '';
+
+    if (isRelativeImage && siteConfig.image) {
+        finalImageUrl = `${getBasePath()}${siteConfig.image.startsWith('/') ? siteConfig.image.slice(1) : siteConfig.image}`;
+
+        if (typeof __BUILD_TIMESTAMP__ !== 'undefined') {
+            try {
+                const url = new URL(finalImageUrl, 'http://dummy.local');
+                if (!url.searchParams.has('v')) {
+                    url.searchParams.set('v', String(__BUILD_TIMESTAMP__));
+                }
+                finalImageUrl = url.pathname + url.search + url.hash;
+            } catch (err) {
+                // Should not happen, but safe fallback
+            }
+        }
+    }
+
     return (
         <section className="profile-section">
             {siteConfig.image && (
                 <div className="profile-sidebar">
                     <div className="profile-image-container">
                         <img
-                            src={siteConfig.image.startsWith('http') ? siteConfig.image : `${getBasePath()}${siteConfig.image.startsWith('/') ? siteConfig.image.slice(1) : siteConfig.image}`}
+                            src={finalImageUrl}
                             alt="Profile"
                             className="profile-image"
                         />
