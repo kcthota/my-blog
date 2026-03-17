@@ -10,7 +10,7 @@ You can close this loop by using Antigravity to automatically interpret and appl
 
 ### 1. Configure the Antigravity Skill
 
-Just create .agent/skills/address-pr-comments/SKILL.md file in your Antigravity workspace. Often this is just your repository folder. Add the following content to your SKILL.md file. 
+Just create .agents/skills/address-pr-comments/SKILL.md file in your Antigravity workspace. Often this is just your repository folder. Add the following content to your SKILL.md file. 
 
 
 
