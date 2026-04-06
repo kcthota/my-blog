@@ -1,30 +1,26 @@
 [
   {
-    "slug": "life-in-weeks-feature",
-    "title": "Introducing the Life in Weeks Feature ⏳",
-    "date": "2026-02-22",
-    "summary": "A new feature to visualize your life in weeks",
-    "weight": 0
+    "slug": "a2a-adk-skills",
+    "title": "Skills in ADK and A2A v1.0",
+    "date": "2026-04-05",
+    "summary": "Enhance your agent's capabilities with skills and expose them over A2A",
+    "weight": 0,
+    "image": "/images/a2a-adk-skills.jpg"
+  },
+  {
+    "slug": "address-review-comments",
+    "title": "Automating PR Fixes with Antigravity",
+    "date": "2026-03-16",
+    "summary": "Leverage Agent Skills to automate code changes for addressing review comments",
+    "weight": 0,
+    "image": null
   },
   {
     "slug": "hello-world",
-    "title": "Welcome to Vending Mocha ☕",
-    "date": "2026-02-17 04:00:00",
-    "summary": "Welcome to your new blogging framework! This is a sample post to get you started.",
-    "weight": 0
-  },
-  {
-    "slug": "markdown-features",
-    "title": "Markdown Features Demo 📝",
-    "date": "2026-02-17 02:00:00",
-    "summary": "A demonstration of the Markdown features supported by Vending Mocha, including code blocks, lists, and formatting.",
-    "weight": 0
-  },
-  {
-    "slug": "deploy-to-github-pages",
-    "title": "Deploying to GitHub Pages 🚀",
-    "date": "2026-02-17 01:00:00",
-    "summary": "A step-by-step guide to deploying your Vending Mocha blog to GitHub Pages using GitHub Actions.",
-    "weight": 0
+    "title": "Hello World!",
+    "date": "2026-02-19",
+    "summary": "Welcome to my blog! I look forward to sharing my learnings in AI, software engineering, and my journey as a developer.",
+    "weight": 0,
+    "image": null
   }
 ]

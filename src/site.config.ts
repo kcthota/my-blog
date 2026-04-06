@@ -19,7 +19,7 @@ export const siteConfig = {
             border: "#eee",
             cardBackground: "#eee",
             linkHover: "#000",
-            linkColor: "#222",
+            linkColor: "#3d6ab7ff",
             lifeWeek: "#ddd"
         },
         dark: {
@@ -30,7 +30,7 @@ export const siteConfig = {
             border: "#333",
             cardBackground: "#373636ff",
             linkHover: "#fff",
-            linkColor: "#ccc",
+            linkColor: "#87c5ebff",
             lifeWeek: "#bbb"
         },
         fontFamily: "Avenir, Open Sans, sans-serif"

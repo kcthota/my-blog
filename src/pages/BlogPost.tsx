@@ -54,12 +54,17 @@ export default function BlogPost() {
         }
     };
 
+    const ogImageUrl = postMeta.image 
+        ? (postMeta.image.startsWith('http') ? postMeta.image : `${siteConfig.url.replace(/\/$/, '')}${postMeta.image.startsWith('/') ? '' : '/'}${postMeta.image}`)
+        : undefined;
+
     return (
         <div className="blog-container">
             <SiteHeader />
             <Helmet>
                 <title>{`${postMeta.title} - ${siteConfig.title}`}</title>
                 <meta name="description" content={postMeta.summary || siteConfig.description} />
+                {ogImageUrl && <meta property="og:image" content={ogImageUrl} />}
                 <script type='application/ld+json'>
                     {JSON.stringify(jsonLd)}
                 </script>
@@ -70,6 +75,11 @@ export default function BlogPost() {
                     <span>{formatDate(postMeta.date)}</span>
                 </div>
             </header>
+            {postMeta.image && (
+                <div className="post-image" style={{ marginBottom: '2rem' }}>
+                    <img src={postMeta.image} alt={postMeta.title} style={{ maxWidth: '100%', borderRadius: '8px' }} />
+                </div>
+            )}
             <div className="markdown-content">
                 <Markdown
                     remarkPlugins={[remarkGfm]}
