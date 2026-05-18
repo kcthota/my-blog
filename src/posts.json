@@ -1,5 +1,13 @@
 [
   {
+    "slug": "my-assistant",
+    "title": "How I built my own assistant app?",
+    "date": "2026-05-17",
+    "summary": "I have vibe coded my own assistant app to track bills, credit card benefits, upcoming travel and more. Here is how I did it.",
+    "weight": 0,
+    "image": null
+  },
+  {
     "slug": "a2a-adk-skills",
     "title": "Skills in ADK and A2A v1.0",
     "date": "2026-04-05",
