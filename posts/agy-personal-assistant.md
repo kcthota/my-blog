@@ -2,6 +2,7 @@
 title: "My Antigravity CLI-Based Personal Assistant"
 date: "2026-07-12"
 summary: "An AI assistant built using the Google Antigravity CLI to help with daily tasks, proactive reminders, and automated agentic trading."
+image: "/images/agy-cli/agy-1.jpeg"
 ---
 
 I have been using the [Antigravity CLI](https://antigravity.google/docs/cli/getting-started) for a while to handle a few ad-hoc tasks on my laptop. Eventually, I realized I could build a true personal AI assistant using the same harness running in the cloud. By hosting it remotely, it could be invoked from anywhere to help with my day-to-day tasks. Furthermore, with the recent availability of the [Robinhood MCP server](https://robinhood.com/us/en/support/articles/agentic-trading-overview/), I could leverage it to place trades on my behalf.
