@@ -30,7 +30,7 @@ These trading rules are defined in Markdown format, and I can instruct the agent
 - **Strict Guardrails**: To prevent runaway automation, the system reads safety limits defined in `AGENTS.md` and enforces them:
   - **Sizing**: Maximum position size is capped at 15% of the total portfolio value.
   - **Minimum Order Value**: Do not execute orders valued under $200.
-  - **Stop-Loss / Take-Profit**: Employs an ATR-based (Average True Range) trailing stop-loss (5–12%) and scales out of positions incrementally (selling 1/3 at +20% profit and another 1/3 at +40% profit).
+  - **=Take-Profit**: Scales out of positions incrementally (selling 1/3 at +20% profit and another 1/3 at +40% profit).
   - **Deny List**: The tickers `GOOG`, `GOOGL`, and `ORCL` are entirely barred from trading.
 
 #### Options Wheel Agent
