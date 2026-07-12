@@ -14,16 +14,16 @@ I started by spinning up a VM instance in Google Cloud Platform (GCP) and instal
 
 While I could invoke this agent via SSH, I wanted to use WhatsApp as my primary communication channel to interact with the agent and receive proactive reminders. To achieve this, I used `agy` to build a WhatsApp Web Gateway that leverages headless Chromium. I assigned this service its own dedicated phone number to communicate with the AI agent.
 
-At a high level, the WhatsApp agent acts as a proxy to the Antigravity CLI. It uses a SQLite-based queue and a simple file system-based (FS-based) lock mechanism to manage and execute incoming tasks sequentially. The gateway also exposes a REST interface that the Antigravity CLI can use to send outbound notifications. This entire gateway runs as a persistent `systemd` user service, ensuring it starts automatically on boot and recovers from crashes.
+At a high level, the WhatsApp agent acts as a proxy to the Antigravity CLI. It uses a SQLite-based queue and a simple file system-based lock mechanism to manage and execute incoming tasks sequentially. The gateway also exposes a REST interface that the Antigravity CLI can use to send outbound notifications. This entire gateway runs as a persistent `systemd` user service, ensuring it starts automatically on boot and recovers from crashes.
 
-To keep it secure, the gateway only processes messages from my personal number and discards all others. The gateway can read text, download images, and interpret my reactions (emojis). It is also fully capable of sending text and images back to me.
+To keep it secure, the gateway only processes messages from my Whatsapp account and discards all others. The gateway can read text, download images, and interpret my reactions (emojis). It is also fully capable of sending text and images back to me.
 
 ### Trading Agent
 
-I created a trading plugin for Antigravity and defined explicit rules for executing automated trades. The agent uses the Robinhood MCP server to place trades. I divided the system into two distinct trading sub-agents:
+I created a trading plugin for Antigravity and defined explicit rules for executing automated trades. The agent uses the Robinhood MCP server to place trades. For now I have to distinct trading sub-agents:
 
 #### Swing Trading Agent
-I used Antigravity to build a Bash script that runs twice a day via `cron`. The script queries the "Robinhood Top 100 Popular Stocks" watchlist, filters for stocks that match my technical criteria, gets analysis and inputs from a virtual "investor committee" (comprising simulated personas of Warren Buffett, Benjamin Graham, Cathie Wood, Michael Burry, etc.), and finally executes trades based on the aggregated advice.
+I used Antigravity to build a python script that runs twice a day via `cron`. The script queries the "Robinhood Top 100 Popular Stocks" watchlist, filters for stocks that match my technical criteria, gets analysis and inputs from a virtual "investor committee" (comprising simulated personas of Warren Buffett, Benjamin Graham, Cathie Wood, Michael Burry, etc.), and finally executes trades based on the aggregated advice.
 
 These trading rules are defined in Markdown format, and I can instruct the agent to modify them dynamically via WhatsApp. Key rules include:
 - **Eligible Assets**: Only place trades on large-cap equities (Market Cap >= $10 Billion) looking for clean daily trend lines and pullbacks.
@@ -40,7 +40,7 @@ Since the Robinhood MCP server doesn't support placing options trades directly, 
 
 ### Proactive Reminders & Notifications
 
-While Antigravity has built-in scheduling capabilities, they are ephemeral. To solve this, I built a persistent scheduler using a SQLite database to store and manage recurring tasks.
+While I could create a cron job for every task and reminders, I thought a simple service with scheduling capabilities and with enhancements to explictly specify the communication channel would be useful. So, I built a persistent scheduler using a SQLite database to store and manage recurring tasks and an ability to specify the output medium (WhatsApp, Email etc.).
 
 All reminders and tasks are defined in a SQLite table with corresponding `cron` expressions. The Antigravity CLI has tools to query and manage this table, allowing me to modify schedules directly via WhatsApp.
 
