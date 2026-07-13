@@ -89,9 +89,17 @@ A market roundup is emailed to me every weekday at 4:00 PM.
 
 I instructed the agent to send workout reminders at 4:30 PM, targeting three gym sessions a week with a rule that no two workouts can occur on consecutive days. The agent parses my replies or emoji reactions to log the workout and reschedule the remaining reminders for the week.
 
+Gym day:
+
 ![Gym Reminders](/images/agy-cli/gym1.jpg?vmw=800)
 
+Rest day:
+
 ![Gym Reminders](/images/agy-cli/gym2.jpg?vmw=800)
+
+When I did the workout ahead of the reminder:
+
+![Gym Reminders](/images/agy-cli/gym3.jpg?vmw=800)
 
 ### Weekend Bill Notifications
 
