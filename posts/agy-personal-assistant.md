@@ -1,5 +1,5 @@
 ---
-title: "My Antigravity CLI-Based Personal Assistant"
+title: "My Antigravity CLI-based Personal Assistant"
 date: "2026-07-12"
 summary: "An AI assistant built using the Google Antigravity CLI to help with daily tasks, proactive reminders, and automated agentic trading."
 image: "/images/agy-cli/agy-1.jpeg"
