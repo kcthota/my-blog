@@ -113,7 +113,7 @@ Every Saturday at 4:00 PM, the agent scans for any bills due within the next 10 
 - **Trash Day**: Reminders sent on Sunday evenings.
 - **Weather Alerts**: Morning alerts if rain is forecasted.
 - **Supplement reminders**: Reminders to take vitamins and supplements at various times of the day.
-- **Adhoc reminders**: Ability to setup adhoc one-time reminders, e.g., book parking before my trip, remember to carry passports, doctor's appointments, kids activities, etc.
+- **Adhoc reminders**: Ability to setup adhoc one-time reminders, e.g., remind me to book airport parking before my trip, remind me to carry passports, remind me about doctor's appointments, kids activities, etc.
 
 ## The Verdict
 
