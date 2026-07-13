@@ -73,6 +73,8 @@ The Automated Trading agent is invoked twice a day. It analyzes stocks that fit 
 
 ![Trading Agent notification](/images/agy-cli/trade.jpg?vmw=800)
 
+I have started the trading agent with $3000 capital and it has made $326 in the last three weeks. I did change the trading strategies a few times, started with AI stocks, enabled YOLO mode and then settled on swing trading approach on large cap stocks.
+
 ### Portfolio Report
 
 A portfolio report is sent via WhatsApp at 1:05 PM, summarizing the day's performance. Later, a detailed long-term performance report is delivered to my email.
@@ -97,10 +99,13 @@ Every Saturday at 4:00 PM, the agent scans for any bills due within the next 10 
 
 ![Weekend Bill Notifications](/images/agy-cli/wallet.jpg?vmw=800)
 
+
 ### Other Notifications
 
 - **Trash Day**: Reminders sent on Sunday evenings.
 - **Weather Alerts**: Morning alerts if rain is forecasted.
+- **Supplement reminders**: Reminders to take vitamins and supplements at various times of the day.
+- **Adhoc reminders**: Ability to setup adhoc one-time reminders, e.g., book parking before my trip, remember to carry passports, doctor's appointments, kids activities, etc.
 
 ## The Verdict
 
