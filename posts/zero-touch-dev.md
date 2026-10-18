@@ -2,7 +2,7 @@
 title: "Zero Touch Agent-Powered Development"
 date: "2026-10-17"
 summary: "I tried a fully autonomous, zero-human-touch software development pipeline using Google Antigravity and Claude Code agents to build my latest side project."
-image: "/images/zero-touch/zero-3.jpg"
+image: "/images/zero-touch/zero-3.jpeg"
 ---
 
 I build quite a few software projects in my free time. For a while, I've used AI coding assistants to speed up routine tasks, but recently I wanted to take things a step further: could I run a **100% autonomous, zero-human-touch development pipeline** for personal projects?
