@@ -1,5 +1,21 @@
 [
   {
+    "slug": "zero-touch-dev",
+    "title": "Zero Touch Agent-Powered Development",
+    "date": "2026-10-17",
+    "summary": "I tried a fully autonomous, zero-human-touch software development pipeline using Google Antigravity and Claude Code agents to build my latest side project.",
+    "weight": 0,
+    "image": "/images/zero-touch/zero-3.jpg"
+  },
+  {
+    "slug": "agy-personal-assistant",
+    "title": "My Antigravity CLI-based Personal Assistant",
+    "date": "2026-07-12",
+    "summary": "An AI assistant built using the Google Antigravity CLI to help with daily tasks, proactive reminders, and automated agentic trading.",
+    "weight": 0,
+    "image": "/images/agy-cli/agy-1.jpeg"
+  },
+  {
     "slug": "my-assistant",
     "title": "How I built my own assistant app?",
     "date": "2026-05-17",
