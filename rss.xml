@@ -5,9 +5,16 @@
   <link>https://kcthota.com</link>
   <description></description>
   <language>en-us</language>
-  <lastBuildDate>Mon, 13 Jul 2026 01:02:51 GMT</lastBuildDate>
+  <lastBuildDate>Sun, 18 Oct 2026 02:20:39 GMT</lastBuildDate>
   <atom:link href="https://kcthota.com/rss.xml" rel="self" type="application/rss+xml" />
   
+    <item>
+      <title><![CDATA[Zero Touch Agent-Powered Development]]></title>
+      <link>https://kcthota.com/post/zero-touch-dev</link>
+      <guid isPermaLink="true">https://kcthota.com/post/zero-touch-dev</guid>
+      <pubDate>Sat, 17 Oct 2026 00:00:00 GMT</pubDate>
+      <description><![CDATA[I tried a fully autonomous, zero-human-touch software development pipeline using Google Antigravity and Claude Code agents to build my latest side project.]]></description>
+    </item>
     <item>
       <title><![CDATA[My Antigravity CLI-based Personal Assistant]]></title>
       <link>https://kcthota.com/post/agy-personal-assistant</link>
