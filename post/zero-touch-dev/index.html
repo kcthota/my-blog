@@ -43,9 +43,9 @@
       title="RSS Feed for Krishna Thota"
       href="/rss.xml"
     />
-    <script src="/assets/theme.od6vpat2.js"></script>
+    <script src="/assets/theme.9cng2xcn.js"></script>
 
-    <link rel="stylesheet" crossorigin href="/assets/index-f1ryMMXT.css" />
+    <link rel="stylesheet" crossorigin href="/assets/index-BNlfhCIP.css" />
   </head>
 
   <body>
@@ -64,7 +64,7 @@
         href="/images/zero-touch/zero-2.jpg?vmw=800"
       />
       <div class="app-wrapper container">
-        <div class="blog-container">
+        <div class="blog-container post-page-container">
           <header class="main-header with-bottom-border">
             <div class="header-title">
               <h1 class="site-title">
@@ -156,171 +156,286 @@
               </div>
             </div>
           </header>
-          <header>
-            <h1>Zero Touch Agent-Powered Development</h1>
-            <div class="meta"><span>October 17, 2026</span></div>
-          </header>
-          <div class="post-image">
-            <img
-              src="/images/zero-touch/zero-3.jpeg"
-              alt="Zero Touch Agent-Powered Development"
-            />
-          </div>
-          <div class="markdown-content">
-            <p>
-              I build quite a few software projects in my free time. For a
-              while, I&#x27;ve used AI coding assistants to speed up routine
-              tasks, but recently I wanted to take things a step further: could
-              I run a
-              <strong
-                >100% autonomous, zero-human-touch development pipeline</strong
-              >
-              for personal projects?
-            </p>
-            <p>
-              Having active subscriptions to both Google Gemini and Claude, I
-              have access to two capable agentic tools:
-              <strong>Antigravity</strong> and <strong>Claude Code</strong>.
-              Rather than picking one, I decided to pair them up as a
-              complementary two-person engineering team. I will be acting as
-              their product manager—defining specs and letting the agents handle
-              the rest.
-            </p>
-            <p>
-              <img
-                src="/images/zero-touch/zero-1.jpg?vmw=800"
-                alt="Workflow"
-                width="800"
-                style="
-                  display: block;
-                  margin-left: auto;
-                  margin-right: auto;
-                  max-width: 100%;
-                  width: 800px;
-                "
-                node="[object Object]"
-              />
-            </p>
-            <h3>How It Works</h3>
-            <p>
-              <strong>Round-Robin Issue Assignment</strong>: Whenever a new
-              issue is filed, a GitHub Actions workflow alternates assignment
-              between <strong>agy</strong> and <strong>claude</strong>,
-              balancing the backlog evenly. Since the agents run locally using
-              my GitHub credentials, the workflow simply tags each issue with an
-              <code>agy</code> or <code>claude</code> label based on whose turn
-              it is.
-            </p>
-            <p>
-              <strong>Isolated Parallel Workspaces</strong>: A cron job on my
-              machine runs every 15 minutes to check for open tickets tagged for
-              each agent. If the queue is empty, it exits immediately without
-              consuming any model tokens. When work is found, the assigned agent
-              spins up in an isolated Git worktree. This prevents branch
-              collisions and allows both agents to build and test concurrently
-              without stepping on each other.
-            </p>
-            <p>
-              <strong>Cross-Agent PR Handoff</strong>: No agent merges its own
-              code. When <strong>agy</strong> completes an issue and opens a
-              pull request, it assigns the PR to <strong>claude</strong> for
-              review (and vice versa). This triggers the peer agent to take
-              ownership of the PR lifecycle.
-            </p>
-            <p>
-              <img
-                src="/images/zero-touch/zero-2.jpg?vmw=800"
-                alt="Handoff and Review Loop"
-                width="800"
-                style="
-                  display: block;
-                  margin-left: auto;
-                  margin-right: auto;
-                  max-width: 100%;
-                  width: 800px;
-                "
-                node="[object Object]"
-              />
-            </p>
-            <h3>Dual Review &amp; Autonomous Merge</h3>
-            <p>
-              <strong>CI &amp; Automated First Pass</strong>: The repository
-              runs automated AI code reviews via Gemini Code Assist alongside
-              standard CI test suites on every pull request. The reviewing peer
-              agent waits for all initial CI checks and automated review bots to
-              finish their pass.
-            </p>
-            <p>
-              <strong>Peer Review &amp; Local Fixes</strong>: The peer agent
-              then inspects the full pull request diff with fresh eyes. It
-              addresses both automated feedback and its own findings, makes any
-              necessary code adjustments directly in the worktree, runs the test
-              suite locally, and pushes the fixes.
-            </p>
-            <p>
-              <strong>Thread Resolution &amp; Squash Merge</strong>: Once all
-              review conversation threads are resolved, the peer review is
-              signed off, and all CI checks turn green, the peer agent
-              autonomously squash-merges the pull request into
-              <code>main</code>.
-            </p>
-            <p>
-              By separating the author from the reviewer and finisher, two
-              distinct AI models cross-check each other&#x27;s blind spots.
-            </p>
-            <h3>The Verdict</h3>
-            <p>
-              I tested this setup manually for a few weeks first—generating PRs
-              with Claude Code or Antigravity, manually prompting the other to
-              review, and doing a final review myself before merging. This week,
-              I automated the entire loop using GitHub Actions, cron jobs, and
-              the respective CLI tools for both agents.
-            </p>
-            <p>
-              The setup works quite well, and features are shipped cleanly from
-              end to end and there are a few learnings as well:
-            </p>
-            <ul>
-              <li>
-                <strong>Spec quality is everything</strong>: The output is only
-                as good as the issue description. If requirements are ambiguous,
-                the agents will make assumptions. Tickets need clear goals,
-                defined constraints, and explicit acceptance criteria.
-              </li>
-              <li>
-                <strong>UX patterns need explicit guidance</strong>: Unless UX
-                expectations are stated upfront, agents will come up with UX
-                that may not be the best for the user. For example, the agents
-                initially built an infinite card grid for a data-dense view when
-                a paginated table was clearly the better choice. Having design
-                guidelines or component conventions in the repo is crucial.
-              </li>
-            </ul>
-            <p>
-              For personal and non-critical side projects, this setup works
-              quite well! It frees you up to think of the high-level system,
-              architecture, and features, instead of getting bogged down in the
-              implementation details. And these coding agents are tireless and
-              run 24x7!
-            </p>
-            <h3>Future Work and Enhancements</h3>
-            <ul>
-              <li>
-                Allow agents to assess PR complexity or risk and route intricate
-                architectural changes to a human reviewer instead of
-                auto-merging simply because CI is green.
-              </li>
-              <li>
-                Set up recurring jobs to periodically inspect the repository and
-                open issues for security vulnerabilities, technical debt, or
-                refactoring opportunities.
-              </li>
-              <li>
-                Setup the agents to spin up a browser, run end-to-end flows, and
-                capture screenshots to visually evaluate and fix UI issues
-                before PR handoff.
-              </li>
-            </ul>
+          <div class="post-layout">
+            <main class="post-main">
+              <header>
+                <h1>Zero Touch Agent-Powered Development</h1>
+                <div class="meta"><span>October 17, 2026</span></div>
+              </header>
+              <div class="post-image">
+                <img
+                  src="/images/zero-touch/zero-3.jpeg"
+                  alt="Zero Touch Agent-Powered Development"
+                />
+              </div>
+              <div class="markdown-content">
+                <p>
+                  I build quite a few software projects in my free time. For a
+                  while, I&#x27;ve used AI coding assistants to speed up routine
+                  tasks, but recently I wanted to take things a step further:
+                  could I run a
+                  <strong
+                    >100% autonomous, zero-human-touch development
+                    pipeline</strong
+                  >
+                  for personal projects?
+                </p>
+                <p>
+                  Having active subscriptions to both Google Gemini and Claude,
+                  I have access to two capable agentic tools:
+                  <strong>Antigravity</strong> and <strong>Claude Code</strong>.
+                  Rather than picking one, I decided to pair them up as a
+                  complementary two-person engineering team. I will be acting as
+                  their product manager—defining specs and letting the agents
+                  handle the rest.
+                </p>
+                <p>
+                  <img
+                    src="/images/zero-touch/zero-1.jpg?vmw=800"
+                    alt="Workflow"
+                    width="800"
+                    style="
+                      display: block;
+                      margin-left: auto;
+                      margin-right: auto;
+                      max-width: 100%;
+                      width: 800px;
+                    "
+                    node="[object Object]"
+                  />
+                </p>
+                <h3>How It Works</h3>
+                <p>
+                  <strong>Round-Robin Issue Assignment</strong>: Whenever a new
+                  issue is filed, a GitHub Actions workflow alternates
+                  assignment between <strong>agy</strong> and
+                  <strong>claude</strong>, balancing the backlog evenly. Since
+                  the agents run locally using my GitHub credentials, the
+                  workflow simply tags each issue with an <code>agy</code> or
+                  <code>claude</code> label based on whose turn it is.
+                </p>
+                <p>
+                  <strong>Isolated Parallel Workspaces</strong>: A cron job on
+                  my machine runs every 15 minutes to check for open tickets
+                  tagged for each agent. If the queue is empty, it exits
+                  immediately without consuming any model tokens. When work is
+                  found, the assigned agent spins up in an isolated Git
+                  worktree. This prevents branch collisions and allows both
+                  agents to build and test concurrently without stepping on each
+                  other.
+                </p>
+                <p>
+                  <strong>Cross-Agent PR Handoff</strong>: No agent merges its
+                  own code. When <strong>agy</strong> completes an issue and
+                  opens a pull request, it assigns the PR to
+                  <strong>claude</strong> for review (and vice versa). This
+                  triggers the peer agent to take ownership of the PR lifecycle.
+                </p>
+                <p>
+                  <img
+                    src="/images/zero-touch/zero-2.jpg?vmw=800"
+                    alt="Handoff and Review Loop"
+                    width="800"
+                    style="
+                      display: block;
+                      margin-left: auto;
+                      margin-right: auto;
+                      max-width: 100%;
+                      width: 800px;
+                    "
+                    node="[object Object]"
+                  />
+                </p>
+                <h3>Dual Review &amp; Autonomous Merge</h3>
+                <p>
+                  <strong>CI &amp; Automated First Pass</strong>: The repository
+                  runs automated AI code reviews via Gemini Code Assist
+                  alongside standard CI test suites on every pull request. The
+                  reviewing peer agent waits for all initial CI checks and
+                  automated review bots to finish their pass.
+                </p>
+                <p>
+                  <strong>Peer Review &amp; Local Fixes</strong>: The peer agent
+                  then inspects the full pull request diff with fresh eyes. It
+                  addresses both automated feedback and its own findings, makes
+                  any necessary code adjustments directly in the worktree, runs
+                  the test suite locally, and pushes the fixes.
+                </p>
+                <p>
+                  <strong>Thread Resolution &amp; Squash Merge</strong>: Once
+                  all review conversation threads are resolved, the peer review
+                  is signed off, and all CI checks turn green, the peer agent
+                  autonomously squash-merges the pull request into
+                  <code>main</code>.
+                </p>
+                <p>
+                  By separating the author from the reviewer and finisher, two
+                  distinct AI models cross-check each other&#x27;s blind spots.
+                </p>
+                <h3>The Verdict</h3>
+                <p>
+                  I tested this setup manually for a few weeks first—generating
+                  PRs with Claude Code or Antigravity, manually prompting the
+                  other to review, and doing a final review myself before
+                  merging. This week, I automated the entire loop using GitHub
+                  Actions, cron jobs, and the respective CLI tools for both
+                  agents.
+                </p>
+                <p>
+                  The setup works quite well, and features are shipped cleanly
+                  from end to end and there are a few learnings as well:
+                </p>
+                <ul>
+                  <li>
+                    <strong>Spec quality is everything</strong>: The output is
+                    only as good as the issue description. If requirements are
+                    ambiguous, the agents will make assumptions. Tickets need
+                    clear goals, defined constraints, and explicit acceptance
+                    criteria.
+                  </li>
+                  <li>
+                    <strong>UX patterns need explicit guidance</strong>: Unless
+                    UX expectations are stated upfront, agents will come up with
+                    UX that may not be the best for the user. For example, the
+                    agents initially built an infinite card grid for a
+                    data-dense view when a paginated table was clearly the
+                    better choice. Having design guidelines or component
+                    conventions in the repo is crucial.
+                  </li>
+                </ul>
+                <p>
+                  For personal and non-critical side projects, this setup works
+                  quite well! It frees you up to think of the high-level system,
+                  architecture, and features, instead of getting bogged down in
+                  the implementation details. And these coding agents are
+                  tireless and run 24x7!
+                </p>
+                <h3>Future Work and Enhancements</h3>
+                <ul>
+                  <li>
+                    Allow agents to assess PR complexity or risk and route
+                    intricate architectural changes to a human reviewer instead
+                    of auto-merging simply because CI is green.
+                  </li>
+                  <li>
+                    Set up recurring jobs to periodically inspect the repository
+                    and open issues for security vulnerabilities, technical
+                    debt, or refactoring opportunities.
+                  </li>
+                  <li>
+                    Setup the agents to spin up a browser, run end-to-end flows,
+                    and capture screenshots to visually evaluate and fix UI
+                    issues before PR handoff.
+                  </li>
+                </ul>
+              </div>
+            </main>
+            <aside class="post-sidebar" aria-label="Previous articles">
+              <div class="sidebar-inner">
+                <div class="sidebar-header">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-book-open sidebar-header-icon"
+                    aria-hidden="true"
+                  >
+                    <path d="M12 7v14"></path>
+                    <path
+                      d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"
+                    ></path>
+                  </svg>
+                  <h3>Previous Articles</h3>
+                </div>
+                <div class="sidebar-posts-list">
+                  <a
+                    class="sidebar-post-card"
+                    href="/post/agy-personal-assistant/"
+                    data-discover="true"
+                    ><div class="sidebar-post-thumbnail">
+                      <img
+                        src="/images/agy-cli/agy-1.jpeg"
+                        alt="My Antigravity CLI-based Personal Assistant"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div class="sidebar-post-body">
+                      <span class="sidebar-post-date">July 12, 2026</span>
+                      <h4 class="sidebar-post-title">
+                        My Antigravity CLI-based Personal Assistant
+                      </h4>
+                      <p class="sidebar-post-summary">
+                        An AI assistant built using the Google Antigravity CLI
+                        to help with daily tasks, proactive reminders, and
+                        automated agentic trading.
+                      </p>
+                    </div></a
+                  ><a
+                    class="sidebar-post-card"
+                    href="/post/my-assistant/"
+                    data-discover="true"
+                    ><div class="sidebar-post-body">
+                      <span class="sidebar-post-date">May 17, 2026</span>
+                      <h4 class="sidebar-post-title">
+                        How I built my own assistant app?
+                      </h4>
+                      <p class="sidebar-post-summary">
+                        I have vibe coded my own assistant app to track bills,
+                        credit card benefits, upcoming travel and more. Here is
+                        how I did it.
+                      </p>
+                    </div></a
+                  ><a
+                    class="sidebar-post-card"
+                    href="/post/a2a-adk-skills/"
+                    data-discover="true"
+                    ><div class="sidebar-post-thumbnail">
+                      <img
+                        src="/images/a2a-adk-skills.jpg"
+                        alt="Skills in ADK and A2A v1.0"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div class="sidebar-post-body">
+                      <span class="sidebar-post-date">April 05, 2026</span>
+                      <h4 class="sidebar-post-title">
+                        Skills in ADK and A2A v1.0
+                      </h4>
+                      <p class="sidebar-post-summary">
+                        Enhance your agent&#x27;s capabilities with skills and
+                        expose them over A2A
+                      </p>
+                    </div></a
+                  >
+                </div>
+                <div class="sidebar-footer">
+                  <a class="sidebar-all-link" href="/" data-discover="true"
+                    ><span>All Articles</span
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-arrow-right"
+                      aria-hidden="true"
+                    >
+                      <path d="M5 12h14"></path>
+                      <path d="m12 5 7 7-7 7"></path></svg
+                  ></a>
+                </div>
+              </div>
+            </aside>
           </div>
         </div>
       </div>

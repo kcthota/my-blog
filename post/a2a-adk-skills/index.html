@@ -41,16 +41,16 @@
       title="RSS Feed for Krishna Thota"
       href="/rss.xml"
     />
-    <script src="/assets/theme.od6vpat2.js"></script>
+    <script src="/assets/theme.9cng2xcn.js"></script>
 
-    <link rel="stylesheet" crossorigin href="/assets/index-f1ryMMXT.css" />
+    <link rel="stylesheet" crossorigin href="/assets/index-BNlfhCIP.css" />
   </head>
 
   <body>
     <div id="root">
       <link rel="preload" as="image" href="/images/a2a-adk-skills.jpg" />
       <div class="app-wrapper container">
-        <div class="blog-container">
+        <div class="blog-container post-page-container">
           <header class="main-header with-bottom-border">
             <div class="header-title">
               <h1 class="site-title">
@@ -142,31 +142,33 @@
               </div>
             </div>
           </header>
-          <header>
-            <h1>Skills in ADK and A2A v1.0</h1>
-            <div class="meta"><span>April 05, 2026</span></div>
-          </header>
-          <div class="post-image">
-            <img
-              src="/images/a2a-adk-skills.jpg"
-              alt="Skills in ADK and A2A v1.0"
-            />
-          </div>
-          <div class="markdown-content">
-            <p>
-              Starting with the ADK Python SDK v1.25.0, ADK agents support
-              extending their capabilities with the
-              <a href="https://agentskills.io/specification"
-                >Agent Skills specification</a
-              >. ADK makes it quite easy to define and use skills in your
-              agents.
-            </p>
-            <p>
-              Here is an example snippet of how to add skills to your ADK agent.
-              Simply pass an instance of <code>SkillToolset</code> as a tool to
-              your ADK agent.
-            </p>
-            <pre><div style="color:#f8f8f2;background:#282a36;text-shadow:0 1px rgba(0, 0, 0, 0.3);font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, &#x27;Ubuntu Mono&#x27;, monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;border-radius:0.3em"><code class="language-python" style="white-space:pre;color:#f8f8f2;background:none;text-shadow:0 1px rgba(0, 0, 0, 0.3);font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, &#x27;Ubuntu Mono&#x27;, monospace;text-align:left;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:#8be9fd">import</span><span> pathlib
+          <div class="post-layout">
+            <main class="post-main">
+              <header>
+                <h1>Skills in ADK and A2A v1.0</h1>
+                <div class="meta"><span>April 05, 2026</span></div>
+              </header>
+              <div class="post-image">
+                <img
+                  src="/images/a2a-adk-skills.jpg"
+                  alt="Skills in ADK and A2A v1.0"
+                />
+              </div>
+              <div class="markdown-content">
+                <p>
+                  Starting with the ADK Python SDK v1.25.0, ADK agents support
+                  extending their capabilities with the
+                  <a href="https://agentskills.io/specification"
+                    >Agent Skills specification</a
+                  >. ADK makes it quite easy to define and use skills in your
+                  agents.
+                </p>
+                <p>
+                  Here is an example snippet of how to add skills to your ADK
+                  agent. Simply pass an instance of <code>SkillToolset</code> as
+                  a tool to your ADK agent.
+                </p>
+                <pre><div style="color:#f8f8f2;background:#282a36;text-shadow:0 1px rgba(0, 0, 0, 0.3);font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, &#x27;Ubuntu Mono&#x27;, monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;border-radius:0.3em"><code class="language-python" style="white-space:pre;color:#f8f8f2;background:none;text-shadow:0 1px rgba(0, 0, 0, 0.3);font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, &#x27;Ubuntu Mono&#x27;, monospace;text-align:left;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span class="token" style="color:#8be9fd">import</span><span> pathlib
 </span>
 <span></span><span class="token" style="color:#8be9fd">from</span><span> google</span><span class="token" style="color:#f8f8f2">.</span><span>adk</span><span class="token" style="color:#f8f8f2">.</span><span>skills </span><span class="token" style="color:#8be9fd">import</span><span> load_skill_from_dir
 </span><span></span><span class="token" style="color:#8be9fd">from</span><span> google</span><span class="token" style="color:#f8f8f2">.</span><span>adk</span><span class="token" style="color:#f8f8f2">.</span><span>tools </span><span class="token" style="color:#8be9fd">import</span><span> skill_toolset
@@ -178,37 +180,40 @@
 <span>my_skill_toolset </span><span class="token" style="color:#f8f8f2">=</span><span> skill_toolset</span><span class="token" style="color:#f8f8f2">.</span><span>SkillToolset</span><span class="token" style="color:#f8f8f2">(</span><span>
 </span><span>    skills</span><span class="token" style="color:#f8f8f2">=</span><span class="token" style="color:#f8f8f2">[</span><span>weather_skill</span><span class="token" style="color:#f8f8f2">]</span><span>
 </span><span></span><span class="token" style="color:#f8f8f2">)</span></code></div></pre>
-            <p>
-              When invoked, the agent will simply load the appropriate skill and
-              use it to perform the task. More details about using skills in ADK
-              can be found <a href="https://adk.dev/skills/">here</a>.
-            </p>
-            <h3>Agent2Agent (A2A) v1.0</h3>
-            <p>
-              Agent2Agent (A2A) is an open protocol, part of the Linux
-              Foundation, for building multi-agent systems and enabling
-              communication from agents or applications to agents. Recently, A2A
-              v1.0 was
-              <a href="https://a2a-protocol.org/latest/announcing-1.0/"
-                >announced</a
-              >
-              with several enhancements, supporting progressive migration from
-              the v0.3 version. The A2A Python SDK has also released
-              <a href="https://pypi.org/project/a2a-sdk/1.0.0a0/">v1.0.0a0</a>
-              that supports the new specification.
-            </p>
-            <p>
-              I was able to create a quick example of an ADK Agent leveraging
-              skills and exposing an A2A v1.0 interface.
-            </p>
-            <h4>
-              <a
-                href="https://github.com/a2aproject/a2a-samples/tree/main/samples/python/agents/adk_skills_agent"
-                >Example ADK Agent with Skills</a
-              >
-            </h4>
-            <p>Below is the agent definition:</p>
-            <pre><div style="color:#f8f8f2;background:#282a36;text-shadow:0 1px rgba(0, 0, 0, 0.3);font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, &#x27;Ubuntu Mono&#x27;, monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;border-radius:0.3em"><code class="language-python" style="white-space:pre;color:#f8f8f2;background:none;text-shadow:0 1px rgba(0, 0, 0, 0.3);font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, &#x27;Ubuntu Mono&#x27;, monospace;text-align:left;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span>root_agent </span><span class="token" style="color:#f8f8f2">=</span><span> LlmAgent</span><span class="token" style="color:#f8f8f2">(</span><span>
+                <p>
+                  When invoked, the agent will simply load the appropriate skill
+                  and use it to perform the task. More details about using
+                  skills in ADK can be found
+                  <a href="https://adk.dev/skills/">here</a>.
+                </p>
+                <h3>Agent2Agent (A2A) v1.0</h3>
+                <p>
+                  Agent2Agent (A2A) is an open protocol, part of the Linux
+                  Foundation, for building multi-agent systems and enabling
+                  communication from agents or applications to agents. Recently,
+                  A2A v1.0 was
+                  <a href="https://a2a-protocol.org/latest/announcing-1.0/"
+                    >announced</a
+                  >
+                  with several enhancements, supporting progressive migration
+                  from the v0.3 version. The A2A Python SDK has also released
+                  <a href="https://pypi.org/project/a2a-sdk/1.0.0a0/"
+                    >v1.0.0a0</a
+                  >
+                  that supports the new specification.
+                </p>
+                <p>
+                  I was able to create a quick example of an ADK Agent
+                  leveraging skills and exposing an A2A v1.0 interface.
+                </p>
+                <h4>
+                  <a
+                    href="https://github.com/a2aproject/a2a-samples/tree/main/samples/python/agents/adk_skills_agent"
+                    >Example ADK Agent with Skills</a
+                  >
+                </h4>
+                <p>Below is the agent definition:</p>
+                <pre><div style="color:#f8f8f2;background:#282a36;text-shadow:0 1px rgba(0, 0, 0, 0.3);font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, &#x27;Ubuntu Mono&#x27;, monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;border-radius:0.3em"><code class="language-python" style="white-space:pre;color:#f8f8f2;background:none;text-shadow:0 1px rgba(0, 0, 0, 0.3);font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, &#x27;Ubuntu Mono&#x27;, monospace;text-align:left;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span>root_agent </span><span class="token" style="color:#f8f8f2">=</span><span> LlmAgent</span><span class="token" style="color:#f8f8f2">(</span><span>
 </span><span>    name</span><span class="token" style="color:#f8f8f2">=</span><span class="token" style="color:#50fa7b">&#x27;skills_agent&#x27;</span><span class="token" style="color:#f8f8f2">,</span><span>
 </span><span>    model</span><span class="token" style="color:#f8f8f2">=</span><span class="token" style="color:#50fa7b">&#x27;gemini-3-flash-preview&#x27;</span><span class="token" style="color:#f8f8f2">,</span><span>
 </span><span>    description</span><span class="token" style="color:#f8f8f2">=</span><span class="token" style="color:#50fa7b">&#x27;Currency Conversion agent&#x27;</span><span class="token" style="color:#f8f8f2">,</span><span>
@@ -219,30 +224,130 @@
 </span><span>    tools</span><span class="token" style="color:#f8f8f2">=</span><span class="token" style="color:#f8f8f2">[</span><span>my_skill_toolset</span><span class="token" style="color:#f8f8f2">,</span><span> execute_http_request</span><span class="token" style="color:#f8f8f2">]</span><span class="token" style="color:#f8f8f2">,</span><span> </span><span class="token" style="color:#6272a4"># skill toolset, http request tool</span><span>
 </span><span>    output_schema</span><span class="token" style="color:#f8f8f2">=</span><span>AgentResponse</span><span class="token" style="color:#f8f8f2">,</span><span> </span><span class="token" style="color:#6272a4"># output schema</span><span>
 </span><span></span><span class="token" style="color:#f8f8f2">)</span></code></div></pre>
-            <p>
-              In this example, I added a skill to allow currency conversions
-              using the
-              <a href="https://frankfurter.dev/">Frankfurter API</a> and a tool
-              to allow the agent to send HTTP requests. Given an input prompt,
-              the agent loads the skill, learns the API to use, and then uses
-              the <code>execute_http_request</code> tool to send the outbound
-              request. You can find a few example requests documented
-              <a
-                href="https://github.com/a2aproject/a2a-samples/blob/main/samples/python/agents/adk_skills_agent/test.http"
-                >here</a
-              >
-              to consume the agent.
-            </p>
-            <p>
-              Notably, the A2A Python SDK also offers A2A v0.3 compatibility via
-              a simple flag, ensuring the agent can support both v0.3 and v1.0
-              clients.
-            </p>
-            <pre><div style="color:#f8f8f2;background:#282a36;text-shadow:0 1px rgba(0, 0, 0, 0.3);font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, &#x27;Ubuntu Mono&#x27;, monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;border-radius:0.3em"><code class="language-python" style="white-space:pre;color:#f8f8f2;background:none;text-shadow:0 1px rgba(0, 0, 0, 0.3);font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, &#x27;Ubuntu Mono&#x27;, monospace;text-align:left;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span>    a2a_app </span><span class="token" style="color:#f8f8f2">=</span><span> A2AStarletteApplication</span><span class="token" style="color:#f8f8f2">(</span><span>
+                <p>
+                  In this example, I added a skill to allow currency conversions
+                  using the
+                  <a href="https://frankfurter.dev/">Frankfurter API</a> and a
+                  tool to allow the agent to send HTTP requests. Given an input
+                  prompt, the agent loads the skill, learns the API to use, and
+                  then uses the <code>execute_http_request</code> tool to send
+                  the outbound request. You can find a few example requests
+                  documented
+                  <a
+                    href="https://github.com/a2aproject/a2a-samples/blob/main/samples/python/agents/adk_skills_agent/test.http"
+                    >here</a
+                  >
+                  to consume the agent.
+                </p>
+                <p>
+                  Notably, the A2A Python SDK also offers A2A v0.3 compatibility
+                  via a simple flag, ensuring the agent can support both v0.3
+                  and v1.0 clients.
+                </p>
+                <pre><div style="color:#f8f8f2;background:#282a36;text-shadow:0 1px rgba(0, 0, 0, 0.3);font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, &#x27;Ubuntu Mono&#x27;, monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;padding:1em;margin:.5em 0;overflow:auto;border-radius:0.3em"><code class="language-python" style="white-space:pre;color:#f8f8f2;background:none;text-shadow:0 1px rgba(0, 0, 0, 0.3);font-family:Consolas, Monaco, &#x27;Andale Mono&#x27;, &#x27;Ubuntu Mono&#x27;, monospace;text-align:left;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none"><span>    a2a_app </span><span class="token" style="color:#f8f8f2">=</span><span> A2AStarletteApplication</span><span class="token" style="color:#f8f8f2">(</span><span>
 </span><span>        agent_card</span><span class="token" style="color:#f8f8f2">=</span><span>agent_card</span><span class="token" style="color:#f8f8f2">,</span><span>
 </span><span>        http_handler</span><span class="token" style="color:#f8f8f2">=</span><span>request_handler</span><span class="token" style="color:#f8f8f2">,</span><span>
 </span><span>        enable_v0_3_compat</span><span class="token" style="color:#f8f8f2">=</span><span class="token" style="color:#bd93f9">True</span><span class="token" style="color:#f8f8f2">,</span><span> </span><span class="token" style="color:#6272a4"># enable 0.3 compatibility</span><span>
 </span><span>    </span><span class="token" style="color:#f8f8f2">)</span></code></div></pre>
+              </div>
+            </main>
+            <aside class="post-sidebar" aria-label="Previous articles">
+              <div class="sidebar-inner">
+                <div class="sidebar-header">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-book-open sidebar-header-icon"
+                    aria-hidden="true"
+                  >
+                    <path d="M12 7v14"></path>
+                    <path
+                      d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"
+                    ></path>
+                  </svg>
+                  <h3>Previous Articles</h3>
+                </div>
+                <div class="sidebar-posts-list">
+                  <a
+                    class="sidebar-post-card"
+                    href="/post/address-review-comments/"
+                    data-discover="true"
+                    ><div class="sidebar-post-body">
+                      <span class="sidebar-post-date">March 16, 2026</span>
+                      <h4 class="sidebar-post-title">
+                        Automating PR Fixes with Antigravity
+                      </h4>
+                      <p class="sidebar-post-summary">
+                        Leverage Agent Skills to automate code changes for
+                        addressing review comments
+                      </p>
+                    </div></a
+                  ><a
+                    class="sidebar-post-card"
+                    href="/post/hello-world/"
+                    data-discover="true"
+                    ><div class="sidebar-post-body">
+                      <span class="sidebar-post-date">February 19, 2026</span>
+                      <h4 class="sidebar-post-title">Hello World!</h4>
+                      <p class="sidebar-post-summary">
+                        Welcome to my blog! I look forward to sharing my
+                        learnings in AI, software engineering, and my journey as
+                        a developer.
+                      </p>
+                    </div></a
+                  ><a
+                    class="sidebar-post-card"
+                    href="/post/zero-touch-dev/"
+                    data-discover="true"
+                    ><div class="sidebar-post-thumbnail">
+                      <img
+                        src="/images/zero-touch/zero-3.jpeg"
+                        alt="Zero Touch Agent-Powered Development"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div class="sidebar-post-body">
+                      <span class="sidebar-post-date">October 17, 2026</span>
+                      <h4 class="sidebar-post-title">
+                        Zero Touch Agent-Powered Development
+                      </h4>
+                      <p class="sidebar-post-summary">
+                        I tried a fully autonomous, zero-human-touch software
+                        development pipeline using Google Antigravity and Claude
+                        Code agents to build my latest side project.
+                      </p>
+                    </div></a
+                  >
+                </div>
+                <div class="sidebar-footer">
+                  <a class="sidebar-all-link" href="/" data-discover="true"
+                    ><span>All Articles</span
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-arrow-right"
+                      aria-hidden="true"
+                    >
+                      <path d="M5 12h14"></path>
+                      <path d="m12 5 7 7-7 7"></path></svg
+                  ></a>
+                </div>
+              </div>
+            </aside>
           </div>
         </div>
       </div>

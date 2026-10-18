@@ -43,9 +43,9 @@
       title="RSS Feed for Krishna Thota"
       href="/rss.xml"
     />
-    <script src="/assets/theme.od6vpat2.js"></script>
+    <script src="/assets/theme.9cng2xcn.js"></script>
 
-    <link rel="stylesheet" crossorigin href="/assets/index-f1ryMMXT.css" />
+    <link rel="stylesheet" crossorigin href="/assets/index-BNlfhCIP.css" />
   </head>
 
   <body>
@@ -80,7 +80,7 @@
         href="/images/agy-cli/wallet.jpg?vmw=800"
       />
       <div class="app-wrapper container">
-        <div class="blog-container">
+        <div class="blog-container post-page-container">
           <header class="main-header with-bottom-border">
             <div class="header-title">
               <h1 class="site-title">
@@ -172,370 +172,483 @@
               </div>
             </div>
           </header>
-          <header>
-            <h1>My Antigravity CLI-based Personal Assistant</h1>
-            <div class="meta"><span>July 12, 2026</span></div>
-          </header>
-          <div class="post-image">
-            <img
-              src="/images/agy-cli/agy-1.jpeg"
-              alt="My Antigravity CLI-based Personal Assistant"
-            />
-          </div>
-          <div class="markdown-content">
-            <p>
-              I have been using the
-              <a href="https://antigravity.google/docs/cli/getting-started"
-                >Antigravity CLI</a
-              >
-              for a while to handle a few ad-hoc tasks on my laptop. Eventually,
-              I realized I could build a true personal AI assistant using the
-              same harness running in the cloud. By hosting it remotely, it
-              could be invoked from anywhere to help with my day-to-day tasks.
-              Furthermore, with the recent availability of the
-              <a
-                href="https://robinhood.com/us/en/support/articles/agentic-trading-overview/"
-                >Robinhood MCP server</a
-              >, I could leverage it to place trades on my behalf.
-            </p>
-            <h2>The Build</h2>
-            <p>
-              I started by spinning up a VM instance in Google Cloud Platform
-              (GCP) and installing the Antigravity CLI. Then, I integrated the
-              Robinhood MCP server with my Antigravity instance. With that, I
-              had the barebones infrastructure ready to build an assistant
-              powered by Gemini.
-            </p>
-            <h3>WhatsApp Gateway</h3>
-            <p>
-              While I could invoke this agent via SSH, I wanted to use WhatsApp
-              as my primary communication channel to interact with the agent and
-              receive proactive reminders. To achieve this, I used
-              <code>agy</code> to build a WhatsApp Web Gateway that leverages
-              headless Chromium. I assigned this service its own dedicated phone
-              number to communicate with the AI agent.
-            </p>
-            <p>
-              At a high level, the WhatsApp agent acts as a proxy to the
-              Antigravity CLI. It uses a SQLite-based queue and a simple file
-              system-based lock mechanism to manage and execute incoming tasks
-              sequentially. The gateway also exposes a REST interface that the
-              Antigravity CLI can use to send outbound notifications. This
-              entire gateway runs as a persistent <code>systemd</code> user
-              service, ensuring it starts automatically on boot and recovers
-              from crashes.
-            </p>
-            <p>
-              To keep it secure, the gateway only processes messages from my
-              Whatsapp account and discards all others. The gateway can read
-              text, download images, and interpret my reactions (emojis). It is
-              also fully capable of sending text and images back to me.
-            </p>
-            <h3>Trading Agent</h3>
-            <p>
-              I created a trading plugin for Antigravity and defined explicit
-              rules for executing automated trades. The agent uses the Robinhood
-              MCP server to place trades. For now I have to distinct trading
-              sub-agents:
-            </p>
-            <h4>Swing Trading Agent</h4>
-            <p>
-              I used Antigravity to build a python script that runs twice a day
-              via <code>cron</code>. The script queries the &quot;Robinhood Top
-              100 Popular Stocks&quot; watchlist, filters for stocks that match
-              my technical criteria, gets analysis and inputs from a virtual
-              &quot;investor committee&quot; (comprising simulated personas of
-              Warren Buffett, Benjamin Graham, Cathie Wood, Michael Burry,
-              etc.), and finally executes trades based on the aggregated advice.
-            </p>
-            <p>
-              These trading rules are defined in Markdown format, and I can
-              instruct the agent to modify them dynamically via WhatsApp. Key
-              rules include:
-            </p>
-            <ul>
-              <li>
-                <strong>Eligible Assets</strong>: Only place trades on large-cap
-                equities (Market Cap &gt;= $10 Billion) looking for clean daily
-                trend lines and pullbacks.
-              </li>
-              <li>
-                <strong>Strict Guardrails</strong>: To prevent runaway
-                automation, the system reads safety limits defined in
-                <code>AGENTS.md</code> and enforces them:<!-- -->
+          <div class="post-layout">
+            <main class="post-main">
+              <header>
+                <h1>My Antigravity CLI-based Personal Assistant</h1>
+                <div class="meta"><span>July 12, 2026</span></div>
+              </header>
+              <div class="post-image">
+                <img
+                  src="/images/agy-cli/agy-1.jpeg"
+                  alt="My Antigravity CLI-based Personal Assistant"
+                />
+              </div>
+              <div class="markdown-content">
+                <p>
+                  I have been using the
+                  <a href="https://antigravity.google/docs/cli/getting-started"
+                    >Antigravity CLI</a
+                  >
+                  for a while to handle a few ad-hoc tasks on my laptop.
+                  Eventually, I realized I could build a true personal AI
+                  assistant using the same harness running in the cloud. By
+                  hosting it remotely, it could be invoked from anywhere to help
+                  with my day-to-day tasks. Furthermore, with the recent
+                  availability of the
+                  <a
+                    href="https://robinhood.com/us/en/support/articles/agentic-trading-overview/"
+                    >Robinhood MCP server</a
+                  >, I could leverage it to place trades on my behalf.
+                </p>
+                <h2>The Build</h2>
+                <p>
+                  I started by spinning up a VM instance in Google Cloud
+                  Platform (GCP) and installing the Antigravity CLI. Then, I
+                  integrated the Robinhood MCP server with my Antigravity
+                  instance. With that, I had the barebones infrastructure ready
+                  to build an assistant powered by Gemini.
+                </p>
+                <h3>WhatsApp Gateway</h3>
+                <p>
+                  While I could invoke this agent via SSH, I wanted to use
+                  WhatsApp as my primary communication channel to interact with
+                  the agent and receive proactive reminders. To achieve this, I
+                  used <code>agy</code> to build a WhatsApp Web Gateway that
+                  leverages headless Chromium. I assigned this service its own
+                  dedicated phone number to communicate with the AI agent.
+                </p>
+                <p>
+                  At a high level, the WhatsApp agent acts as a proxy to the
+                  Antigravity CLI. It uses a SQLite-based queue and a simple
+                  file system-based lock mechanism to manage and execute
+                  incoming tasks sequentially. The gateway also exposes a REST
+                  interface that the Antigravity CLI can use to send outbound
+                  notifications. This entire gateway runs as a persistent
+                  <code>systemd</code> user service, ensuring it starts
+                  automatically on boot and recovers from crashes.
+                </p>
+                <p>
+                  To keep it secure, the gateway only processes messages from my
+                  Whatsapp account and discards all others. The gateway can read
+                  text, download images, and interpret my reactions (emojis). It
+                  is also fully capable of sending text and images back to me.
+                </p>
+                <h3>Trading Agent</h3>
+                <p>
+                  I created a trading plugin for Antigravity and defined
+                  explicit rules for executing automated trades. The agent uses
+                  the Robinhood MCP server to place trades. For now I have to
+                  distinct trading sub-agents:
+                </p>
+                <h4>Swing Trading Agent</h4>
+                <p>
+                  I used Antigravity to build a python script that runs twice a
+                  day via <code>cron</code>. The script queries the
+                  &quot;Robinhood Top 100 Popular Stocks&quot; watchlist,
+                  filters for stocks that match my technical criteria, gets
+                  analysis and inputs from a virtual &quot;investor
+                  committee&quot; (comprising simulated personas of Warren
+                  Buffett, Benjamin Graham, Cathie Wood, Michael Burry, etc.),
+                  and finally executes trades based on the aggregated advice.
+                </p>
+                <p>
+                  These trading rules are defined in Markdown format, and I can
+                  instruct the agent to modify them dynamically via WhatsApp.
+                  Key rules include:
+                </p>
                 <ul>
                   <li>
-                    <strong>Sizing</strong>: Maximum position size is capped at
-                    15% of the total portfolio value.
+                    <strong>Eligible Assets</strong>: Only place trades on
+                    large-cap equities (Market Cap &gt;= $10 Billion) looking
+                    for clean daily trend lines and pullbacks.
                   </li>
                   <li>
-                    <strong>Minimum Order Value</strong>: Do not execute orders
-                    valued under $200.
-                  </li>
-                  <li>
-                    <strong>Take-Profit</strong>: Scales out of positions
-                    incrementally (selling 1/3 at +20% profit and another 1/3 at
-                    +40% profit).
-                  </li>
-                  <li>
-                    <strong>Deny List</strong>: The tickers <code>GOOG</code>,
-                    <code>GOOGL</code>, and <code>ORCL</code> are entirely
-                    barred from trading.
+                    <strong>Strict Guardrails</strong>: To prevent runaway
+                    automation, the system reads safety limits defined in
+                    <code>AGENTS.md</code> and enforces them:<!-- -->
+                    <ul>
+                      <li>
+                        <strong>Sizing</strong>: Maximum position size is capped
+                        at 15% of the total portfolio value.
+                      </li>
+                      <li>
+                        <strong>Minimum Order Value</strong>: Do not execute
+                        orders valued under $200.
+                      </li>
+                      <li>
+                        <strong>Take-Profit</strong>: Scales out of positions
+                        incrementally (selling 1/3 at +20% profit and another
+                        1/3 at +40% profit).
+                      </li>
+                      <li>
+                        <strong>Deny List</strong>: The tickers
+                        <code>GOOG</code>, <code>GOOGL</code>, and
+                        <code>ORCL</code> are entirely barred from trading.
+                      </li>
+                    </ul>
                   </li>
                 </ul>
-              </li>
-            </ul>
-            <h4>Options Wheel Agent</h4>
-            <p>
-              This agent monitors my existing portfolio and a watchlist of
-              long-term hold stocks. It actively looks for opportunities to
-              write covered calls and generate income. I have defined specific
-              rules regarding option strike prices and contract durations to
-              filter out noise, ensuring it only notifies me when a trade is
-              worth manual execution.
-            </p>
-            <p>
-              Since the Robinhood MCP server doesn&#x27;t support placing
-              options trades directly, this is a notification-only agent for
-              now.
-            </p>
-            <h3>Proactive Reminders &amp; Notifications</h3>
-            <p>
-              While I could create a cron job for every task and reminders, I
-              thought a simple service with scheduling capabilities and with
-              enhancements to explictly specify the communication channel would
-              be useful. So, I built a persistent scheduler using a SQLite
-              database to store and manage recurring tasks and an ability to
-              specify the output medium (WhatsApp, Email etc.).
-            </p>
-            <p>
-              All reminders and tasks are defined in a SQLite table with
-              corresponding <code>cron</code> expressions. The Antigravity CLI
-              has tools to query and manage this table, allowing me to modify
-              schedules directly via WhatsApp.
-            </p>
-            <p>
-              A system <code>cron</code> job runs every minute to invoke a
-              Python coordinator script. This script checks the SQLite database
-              for pending tasks and, for each one, spins up the Antigravity CLI.
-              Depending on the task type, the Antigravity agent determines which
-              tools to use to fulfill the request. For example, when generating
-              my daily news briefing, the agent performs a Google Search,
-              retrieves the articles, summarizes the content, and formats/sends
-              the final notification via WhatsApp.
-            </p>
-            <h3>Mail Notifications</h3>
-            <p>
-              While WhatsApp is great for quick updates, some reports are better
-              suited for a long-form format. For these, I integrated the
-              <a href="https://github.com/mailgun/mailjet-mcp-server"
-                >Mailjet MCP server</a
-              >
-              to send outbound emails.
-            </p>
-            <p>
-              Currently, this integration is outbound-only. However, in the
-              future, I plan to give the agent its own inbox so I can forward
-              emails to it. For instance, forwarding an invoice email to the
-              agent would allow it to parse and track the bill automatically.
-            </p>
-            <h3>Automated History Compactor</h3>
-            <p>
-              I seeded the agent with basic profile details (my name, location,
-              and occupation). However, to make the assistant feel truly
-              personalized, it needs to learn my preferences, family details,
-              and communication style over time.
-            </p>
-            <p>
-              To achieve this, I set up a scheduled job that runs hourly to
-              analyze recent conversation transcripts. It extracts new personal
-              facts, deduplicates them, and updates a
-              <code>user_facts.json</code> file. This file is injected into the
-              Antigravity CLI context during system initialization, keeping the
-              interaction history lean while maintaining long-term memory.
-            </p>
-            <h2>My AI Assistant in action</h2>
-            <h3>Daily News</h3>
-            <p>
-              Every morning at 7:00 AM, I get a WhatsApp notification
-              summarizing the top stories of the day.
-            </p>
-            <p>
-              <img
-                src="/images/agy-cli/news.jpg?vmw=800"
-                alt="News notification"
-                width="800"
-                style="
-                  display: block;
-                  margin-left: auto;
-                  margin-right: auto;
-                  max-width: 100%;
-                  width: 800px;
-                "
-                node="[object Object]"
-              />
-            </p>
-            <h3>Trading Agent Invocation</h3>
-            <p>
-              The Automated Trading agent is invoked twice a day. It analyzes
-              stocks that fit my criteria, executes trades, and notifies me of
-              the actions taken.
-            </p>
-            <p>
-              <img
-                src="/images/agy-cli/trade.jpg?vmw=800"
-                alt="Trading Agent notification"
-                width="800"
-                style="
-                  display: block;
-                  margin-left: auto;
-                  margin-right: auto;
-                  max-width: 100%;
-                  width: 800px;
-                "
-                node="[object Object]"
-              />
-            </p>
-            <p>
-              I have started the trading agent with $3000 capital and it has
-              made $326 in the last three weeks. I did change the trading
-              strategies a few times, started with AI stocks, enabled YOLO mode
-              and then settled on swing trading approach on large cap stocks.
-            </p>
-            <h3>Portfolio Report</h3>
-            <p>
-              A portfolio report is sent via WhatsApp at 1:05 PM, summarizing
-              the day&#x27;s performance. Later, a detailed long-term
-              performance report is delivered to my email.
-            </p>
-            <h3>Daily Market Roundup</h3>
-            <p>A market roundup is emailed to me every weekday at 4:00 PM.</p>
-            <p>
-              <img
-                src="/images/agy-cli/daily-roundup.jpg?vmw=800"
-                alt="Daily Market Roundup"
-                width="800"
-                style="
-                  display: block;
-                  margin-left: auto;
-                  margin-right: auto;
-                  max-width: 100%;
-                  width: 800px;
-                "
-                node="[object Object]"
-              />
-            </p>
-            <h3>Gym Reminders</h3>
-            <p>
-              I instructed the agent to send workout reminders at 4:30 PM,
-              targeting three gym sessions a week with a rule that no two
-              workouts can occur on consecutive days. The agent parses my
-              replies or emoji reactions to log the workout and reschedule the
-              remaining reminders for the week.
-            </p>
-            <p>Gym day:</p>
-            <p>
-              <img
-                src="/images/agy-cli/gym1.jpg?vmw=800"
-                alt="Gym Reminders"
-                width="800"
-                style="
-                  display: block;
-                  margin-left: auto;
-                  margin-right: auto;
-                  max-width: 100%;
-                  width: 800px;
-                "
-                node="[object Object]"
-              />
-            </p>
-            <p>Rest day:</p>
-            <p>
-              <img
-                src="/images/agy-cli/gym2.jpg?vmw=800"
-                alt="Gym Reminders"
-                width="800"
-                style="
-                  display: block;
-                  margin-left: auto;
-                  margin-right: auto;
-                  max-width: 100%;
-                  width: 800px;
-                "
-                node="[object Object]"
-              />
-            </p>
-            <p>When I did the workout ahead of the reminder:</p>
-            <p>
-              <img
-                src="/images/agy-cli/gym3.jpg?vmw=800"
-                alt="Gym Reminders"
-                width="800"
-                style="
-                  display: block;
-                  margin-left: auto;
-                  margin-right: auto;
-                  max-width: 100%;
-                  width: 800px;
-                "
-                node="[object Object]"
-              />
-            </p>
-            <h3>Weekend Bill Notifications</h3>
-            <p>
-              Every Saturday at 4:00 PM, the agent scans for any bills due
-              within the next 10 days and sends a reminder.
-            </p>
-            <p>
-              <img
-                src="/images/agy-cli/wallet.jpg?vmw=800"
-                alt="Weekend Bill Notifications"
-                width="800"
-                style="
-                  display: block;
-                  margin-left: auto;
-                  margin-right: auto;
-                  max-width: 100%;
-                  width: 800px;
-                "
-                node="[object Object]"
-              />
-            </p>
-            <h3>Other Notifications</h3>
-            <ul>
-              <li>
-                <strong>Trash Day</strong>: Reminders sent on Sunday evenings.
-              </li>
-              <li>
-                <strong>Weather Alerts</strong>: Morning alerts if rain is
-                forecasted.
-              </li>
-              <li>
-                <strong>Supplement reminders</strong>: Reminders to take
-                vitamins and supplements at various times of the day.
-              </li>
-              <li>
-                <strong>Adhoc reminders</strong>: Ability to setup adhoc
-                one-time reminders, e.g., remind me to book airport parking
-                before my trip, remind me to carry passports, remind me about
-                doctor&#x27;s appointments, kids activities, etc.
-              </li>
-            </ul>
-            <h2>The Verdict</h2>
-            <p>
-              Having used this assistant for the past few weeks, the experience
-              has been amazing and definitely a lot of fun building and
-              enhancing it. The ability to converse with and modify agents
-              directly via WhatsApp is game-changing. Leveraging standard tools
-              like <code>cron</code>, SQLite, and custom Python/Bash scripts
-              alongside the MCP has proven to be an incredibly powerful way to
-              build tailored AI agents.
-            </p>
-            <p>
-              While this project was designed specifically for my personal use,
-              I expect to enhance the agent&#x27;s capabilities with more
-              workflows as I continue to experiment with this agent.
-            </p>
+                <h4>Options Wheel Agent</h4>
+                <p>
+                  This agent monitors my existing portfolio and a watchlist of
+                  long-term hold stocks. It actively looks for opportunities to
+                  write covered calls and generate income. I have defined
+                  specific rules regarding option strike prices and contract
+                  durations to filter out noise, ensuring it only notifies me
+                  when a trade is worth manual execution.
+                </p>
+                <p>
+                  Since the Robinhood MCP server doesn&#x27;t support placing
+                  options trades directly, this is a notification-only agent for
+                  now.
+                </p>
+                <h3>Proactive Reminders &amp; Notifications</h3>
+                <p>
+                  While I could create a cron job for every task and reminders,
+                  I thought a simple service with scheduling capabilities and
+                  with enhancements to explictly specify the communication
+                  channel would be useful. So, I built a persistent scheduler
+                  using a SQLite database to store and manage recurring tasks
+                  and an ability to specify the output medium (WhatsApp, Email
+                  etc.).
+                </p>
+                <p>
+                  All reminders and tasks are defined in a SQLite table with
+                  corresponding <code>cron</code> expressions. The Antigravity
+                  CLI has tools to query and manage this table, allowing me to
+                  modify schedules directly via WhatsApp.
+                </p>
+                <p>
+                  A system <code>cron</code> job runs every minute to invoke a
+                  Python coordinator script. This script checks the SQLite
+                  database for pending tasks and, for each one, spins up the
+                  Antigravity CLI. Depending on the task type, the Antigravity
+                  agent determines which tools to use to fulfill the request.
+                  For example, when generating my daily news briefing, the agent
+                  performs a Google Search, retrieves the articles, summarizes
+                  the content, and formats/sends the final notification via
+                  WhatsApp.
+                </p>
+                <h3>Mail Notifications</h3>
+                <p>
+                  While WhatsApp is great for quick updates, some reports are
+                  better suited for a long-form format. For these, I integrated
+                  the
+                  <a href="https://github.com/mailgun/mailjet-mcp-server"
+                    >Mailjet MCP server</a
+                  >
+                  to send outbound emails.
+                </p>
+                <p>
+                  Currently, this integration is outbound-only. However, in the
+                  future, I plan to give the agent its own inbox so I can
+                  forward emails to it. For instance, forwarding an invoice
+                  email to the agent would allow it to parse and track the bill
+                  automatically.
+                </p>
+                <h3>Automated History Compactor</h3>
+                <p>
+                  I seeded the agent with basic profile details (my name,
+                  location, and occupation). However, to make the assistant feel
+                  truly personalized, it needs to learn my preferences, family
+                  details, and communication style over time.
+                </p>
+                <p>
+                  To achieve this, I set up a scheduled job that runs hourly to
+                  analyze recent conversation transcripts. It extracts new
+                  personal facts, deduplicates them, and updates a
+                  <code>user_facts.json</code> file. This file is injected into
+                  the Antigravity CLI context during system initialization,
+                  keeping the interaction history lean while maintaining
+                  long-term memory.
+                </p>
+                <h2>My AI Assistant in action</h2>
+                <h3>Daily News</h3>
+                <p>
+                  Every morning at 7:00 AM, I get a WhatsApp notification
+                  summarizing the top stories of the day.
+                </p>
+                <p>
+                  <img
+                    src="/images/agy-cli/news.jpg?vmw=800"
+                    alt="News notification"
+                    width="800"
+                    style="
+                      display: block;
+                      margin-left: auto;
+                      margin-right: auto;
+                      max-width: 100%;
+                      width: 800px;
+                    "
+                    node="[object Object]"
+                  />
+                </p>
+                <h3>Trading Agent Invocation</h3>
+                <p>
+                  The Automated Trading agent is invoked twice a day. It
+                  analyzes stocks that fit my criteria, executes trades, and
+                  notifies me of the actions taken.
+                </p>
+                <p>
+                  <img
+                    src="/images/agy-cli/trade.jpg?vmw=800"
+                    alt="Trading Agent notification"
+                    width="800"
+                    style="
+                      display: block;
+                      margin-left: auto;
+                      margin-right: auto;
+                      max-width: 100%;
+                      width: 800px;
+                    "
+                    node="[object Object]"
+                  />
+                </p>
+                <p>
+                  I have started the trading agent with $3000 capital and it has
+                  made $326 in the last three weeks. I did change the trading
+                  strategies a few times, started with AI stocks, enabled YOLO
+                  mode and then settled on swing trading approach on large cap
+                  stocks.
+                </p>
+                <h3>Portfolio Report</h3>
+                <p>
+                  A portfolio report is sent via WhatsApp at 1:05 PM,
+                  summarizing the day&#x27;s performance. Later, a detailed
+                  long-term performance report is delivered to my email.
+                </p>
+                <h3>Daily Market Roundup</h3>
+                <p>
+                  A market roundup is emailed to me every weekday at 4:00 PM.
+                </p>
+                <p>
+                  <img
+                    src="/images/agy-cli/daily-roundup.jpg?vmw=800"
+                    alt="Daily Market Roundup"
+                    width="800"
+                    style="
+                      display: block;
+                      margin-left: auto;
+                      margin-right: auto;
+                      max-width: 100%;
+                      width: 800px;
+                    "
+                    node="[object Object]"
+                  />
+                </p>
+                <h3>Gym Reminders</h3>
+                <p>
+                  I instructed the agent to send workout reminders at 4:30 PM,
+                  targeting three gym sessions a week with a rule that no two
+                  workouts can occur on consecutive days. The agent parses my
+                  replies or emoji reactions to log the workout and reschedule
+                  the remaining reminders for the week.
+                </p>
+                <p>Gym day:</p>
+                <p>
+                  <img
+                    src="/images/agy-cli/gym1.jpg?vmw=800"
+                    alt="Gym Reminders"
+                    width="800"
+                    style="
+                      display: block;
+                      margin-left: auto;
+                      margin-right: auto;
+                      max-width: 100%;
+                      width: 800px;
+                    "
+                    node="[object Object]"
+                  />
+                </p>
+                <p>Rest day:</p>
+                <p>
+                  <img
+                    src="/images/agy-cli/gym2.jpg?vmw=800"
+                    alt="Gym Reminders"
+                    width="800"
+                    style="
+                      display: block;
+                      margin-left: auto;
+                      margin-right: auto;
+                      max-width: 100%;
+                      width: 800px;
+                    "
+                    node="[object Object]"
+                  />
+                </p>
+                <p>When I did the workout ahead of the reminder:</p>
+                <p>
+                  <img
+                    src="/images/agy-cli/gym3.jpg?vmw=800"
+                    alt="Gym Reminders"
+                    width="800"
+                    style="
+                      display: block;
+                      margin-left: auto;
+                      margin-right: auto;
+                      max-width: 100%;
+                      width: 800px;
+                    "
+                    node="[object Object]"
+                  />
+                </p>
+                <h3>Weekend Bill Notifications</h3>
+                <p>
+                  Every Saturday at 4:00 PM, the agent scans for any bills due
+                  within the next 10 days and sends a reminder.
+                </p>
+                <p>
+                  <img
+                    src="/images/agy-cli/wallet.jpg?vmw=800"
+                    alt="Weekend Bill Notifications"
+                    width="800"
+                    style="
+                      display: block;
+                      margin-left: auto;
+                      margin-right: auto;
+                      max-width: 100%;
+                      width: 800px;
+                    "
+                    node="[object Object]"
+                  />
+                </p>
+                <h3>Other Notifications</h3>
+                <ul>
+                  <li>
+                    <strong>Trash Day</strong>: Reminders sent on Sunday
+                    evenings.
+                  </li>
+                  <li>
+                    <strong>Weather Alerts</strong>: Morning alerts if rain is
+                    forecasted.
+                  </li>
+                  <li>
+                    <strong>Supplement reminders</strong>: Reminders to take
+                    vitamins and supplements at various times of the day.
+                  </li>
+                  <li>
+                    <strong>Adhoc reminders</strong>: Ability to setup adhoc
+                    one-time reminders, e.g., remind me to book airport parking
+                    before my trip, remind me to carry passports, remind me
+                    about doctor&#x27;s appointments, kids activities, etc.
+                  </li>
+                </ul>
+                <h2>The Verdict</h2>
+                <p>
+                  Having used this assistant for the past few weeks, the
+                  experience has been amazing and definitely a lot of fun
+                  building and enhancing it. The ability to converse with and
+                  modify agents directly via WhatsApp is game-changing.
+                  Leveraging standard tools like <code>cron</code>, SQLite, and
+                  custom Python/Bash scripts alongside the MCP has proven to be
+                  an incredibly powerful way to build tailored AI agents.
+                </p>
+                <p>
+                  While this project was designed specifically for my personal
+                  use, I expect to enhance the agent&#x27;s capabilities with
+                  more workflows as I continue to experiment with this agent.
+                </p>
+              </div>
+            </main>
+            <aside class="post-sidebar" aria-label="Previous articles">
+              <div class="sidebar-inner">
+                <div class="sidebar-header">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-book-open sidebar-header-icon"
+                    aria-hidden="true"
+                  >
+                    <path d="M12 7v14"></path>
+                    <path
+                      d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"
+                    ></path>
+                  </svg>
+                  <h3>Previous Articles</h3>
+                </div>
+                <div class="sidebar-posts-list">
+                  <a
+                    class="sidebar-post-card"
+                    href="/post/my-assistant/"
+                    data-discover="true"
+                    ><div class="sidebar-post-body">
+                      <span class="sidebar-post-date">May 17, 2026</span>
+                      <h4 class="sidebar-post-title">
+                        How I built my own assistant app?
+                      </h4>
+                      <p class="sidebar-post-summary">
+                        I have vibe coded my own assistant app to track bills,
+                        credit card benefits, upcoming travel and more. Here is
+                        how I did it.
+                      </p>
+                    </div></a
+                  ><a
+                    class="sidebar-post-card"
+                    href="/post/a2a-adk-skills/"
+                    data-discover="true"
+                    ><div class="sidebar-post-thumbnail">
+                      <img
+                        src="/images/a2a-adk-skills.jpg"
+                        alt="Skills in ADK and A2A v1.0"
+                        loading="lazy"
+                      />
+                    </div>
+                    <div class="sidebar-post-body">
+                      <span class="sidebar-post-date">April 05, 2026</span>
+                      <h4 class="sidebar-post-title">
+                        Skills in ADK and A2A v1.0
+                      </h4>
+                      <p class="sidebar-post-summary">
+                        Enhance your agent&#x27;s capabilities with skills and
+                        expose them over A2A
+                      </p>
+                    </div></a
+                  ><a
+                    class="sidebar-post-card"
+                    href="/post/address-review-comments/"
+                    data-discover="true"
+                    ><div class="sidebar-post-body">
+                      <span class="sidebar-post-date">March 16, 2026</span>
+                      <h4 class="sidebar-post-title">
+                        Automating PR Fixes with Antigravity
+                      </h4>
+                      <p class="sidebar-post-summary">
+                        Leverage Agent Skills to automate code changes for
+                        addressing review comments
+                      </p>
+                    </div></a
+                  >
+                </div>
+                <div class="sidebar-footer">
+                  <a class="sidebar-all-link" href="/" data-discover="true"
+                    ><span>All Articles</span
+                    ><svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      class="lucide lucide-arrow-right"
+                      aria-hidden="true"
+                    >
+                      <path d="M5 12h14"></path>
+                      <path d="m12 5 7 7-7 7"></path></svg
+                  ></a>
+                </div>
+              </div>
+            </aside>
           </div>
         </div>
       </div>
