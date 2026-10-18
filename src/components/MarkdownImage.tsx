@@ -19,7 +19,12 @@ export function MarkdownImage({ src, alt, ...props }: MarkdownImageProps) {
         src = src.replace(/\?vmw=\d+&vmh=\d+/, '');
 
         // Construct styles or attributes
-        const style: React.CSSProperties = {};
+        const style: React.CSSProperties = {
+            display: 'block',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            maxWidth: '100%',
+        };
         if (width) style.width = `${width}px`;
         if (height) style.height = `${height}px`;
 
@@ -29,12 +34,25 @@ export function MarkdownImage({ src, alt, ...props }: MarkdownImageProps) {
                 alt={alt}
                 width={width || undefined}
                 height={height || undefined}
-                style={{ ...props.style, ...style }}
+                style={{ ...style, ...props.style }}
                 {...props}
             />
         );
     } catch (e) {
         // Fallback for invalid URLs
-        return <img src={src} alt={alt} {...props} />;
+        return (
+            <img
+                src={src}
+                alt={alt}
+                style={{
+                    display: 'block',
+                    marginLeft: 'auto',
+                    marginRight: 'auto',
+                    maxWidth: '100%',
+                    ...props.style,
+                }}
+                {...props}
+            />
+        );
     }
 }

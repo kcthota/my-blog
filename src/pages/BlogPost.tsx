@@ -76,8 +76,8 @@ export default function BlogPost() {
                 </div>
             </header>
             {postMeta.image && (
-                <div className="post-image" style={{ marginBottom: '2rem' }}>
-                    <img src={postMeta.image} alt={postMeta.title} style={{ maxWidth: '100%', borderRadius: '8px' }} />
+                <div className="post-image">
+                    <img src={postMeta.image} alt={postMeta.title} />
                 </div>
             )}
             <div className="markdown-content">

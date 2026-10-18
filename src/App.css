@@ -433,6 +433,31 @@ code {
   padding: 0;
 }
 
+.post-image {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.post-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+}
+
+.markdown-content img {
+  display: block;
+  margin: 1.5rem auto;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.markdown-content p:has(> img) {
+  text-align: center;
+}
+
 @media (prefers-color-scheme: light) {
 
   .markdown-content p {
